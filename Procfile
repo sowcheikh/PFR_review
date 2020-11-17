@@ -1,1 +1,1 @@
-echo 'web: heroku-php-apache2 public/' > Procfile
+web: $(compose config bin-dir)heroku-php-apache2 public/
