@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0437b26c-d39e-46c6-bb0d-ee95ac095f5b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/PFR_review.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PFR_review.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -29,6 +28,8 @@
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -131,6 +132,9 @@
       <path value="$PROJECT_DIR$/vendor/lexik/jwt-authentication-bundle" />
       <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
       <path value="$PROJECT_DIR$/vendor/namshi/jose" />
+      <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1kN3VgUxuoMKn1Ks1JrekHQVd47" />
@@ -153,7 +157,7 @@
       <option name="presentableId" value="Default" />
       <updated>1605527248329</updated>
       <workItem from="1605527250769" duration="6034000" />
-      <workItem from="1605535995132" duration="6339000" />
+      <workItem from="1605535995132" duration="32693000" />
     </task>
     <servers />
   </component>
@@ -170,5 +174,15 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="755" y="445" width="399" height="156" key="NewPhpFileDialog" timestamp="1605604467867">
+      <screen x="0" y="27" width="1920" height="985" />
+    </state>
+    <state x="755" y="445" width="399" height="156" key="NewPhpFileDialog/0.27.1920.985@0.27.1920.985" timestamp="1605604467867" />
+    <state x="624" y="235" key="run.anything.popup" timestamp="1605607561885">
+      <screen x="0" y="27" width="1920" height="985" />
+    </state>
+    <state x="624" y="235" key="run.anything.popup/0.27.1920.985@0.27.1920.985" timestamp="1605607561885" />
   </component>
 </project>
