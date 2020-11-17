@@ -67,12 +67,12 @@ class UserFixtures extends Fixture
             $userCM->setNom($faker->lastName());
             $userCM->setPrenom($faker->firstName());
             $userCM->setEmail($faker->email());
-            $userAdmin->setProfile(        $this->getReference(ProfilFixtures::CM_USER_REFERENCE));
+            $userCM->setProfile(        $this->getReference(ProfilFixtures::CM_USER_REFERENCE));
             $password = $this->passwordEncoder->encodePassword($userCM, 'password');
             $userCM->setPassword($password);
             //reférencement vers les fixtures
             //$user->setProfile($this->getReference($i));
-            $manager->persist($userAdmin);
+            $manager->persist($userCM);
         }
         $manager->flush();
 
