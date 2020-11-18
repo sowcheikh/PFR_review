@@ -2,16 +2,29 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiSubresource;
 use App\Repository\ProfilRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\BooleanFilter;
+
 
 /**
- * @ApiResource()
+ *
  * @ORM\Entity(repositoryClass=ProfilRepository::class)
+ * @ApiFilter(BooleanFilter::class, properties={"archive"=false})
+ * @ApiResource(
+ *       attributes={
+ *          "security"="is_granted('ROLE_ADMIN')",
+ *          "security_message"="Acces refusé vous n'avez pas l'autorisation",
+ *          "normalizationContext"={"groups":"profil:read"}
+ *     }
+ * )
  */
 class Profil
 {
@@ -19,19 +32,28 @@ class Profil
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"profil:read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Le Libelle est obligatoire")
+     * @Groups({" profil:read "})
      */
     private $libelle;
 
     /**
      * @ORM\OneToMany(targetEntity=User::class, mappedBy="profile")
+     * @ApiSubresource()
      */
     private $users;
+
+    /**
+     * @ORM\Column(type="boolean")
+     * @Groups({"profil:read "})
+     */
+    private $archive = 0;
 
     public function __construct()
     {
@@ -81,6 +103,18 @@ class Profil
                 $user->setProfile(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getArchive(): ?bool
+    {
+        return $this->archive;
+    }
+
+    public function setArchive(?bool $archive): self
+    {
+        $this->archive = $archive;
 
         return $this;
     }

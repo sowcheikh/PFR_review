@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\DiscriminatorColumn;
@@ -12,8 +13,14 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @ORM\InheritanceType("JOINED")
- * @DiscriminatorColumn(name="type", type="string")
+ * @DiscriminatorColumn(name="profil", type="string")
  * @DiscriminatorMap({"user" = "User", "admin" = "Admin", "apprenant" = "Apprenant", "formateur" ="Formateur", "cm" ="CM"})
+ *  * @ApiResource(
+ *     attributes={
+ *          "security"="is_granted('ROLE_ADMIN')",
+ *          "security_message"="Acces refusé vous n'avez pas l'autorisation"
+ *     }
+ * )
  */
 class User implements UserInterface
 {
@@ -22,26 +29,29 @@ class User implements UserInterface
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    protected $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     *  @Assert\NotBlank(message="L'email est obligatoire")
+     * @Assert\Email(
+     *     message="Veuillez saisir un email valide."
+     * )
      */
-    private $email;
+    protected $email;
 
-    /**
-     * @ORM\Column(type="json")
-     */
-    private $roles = [];
+    protected $roles = [];
 
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\NotBlank(message="Le password est obligatoire")
      */
-    private $password;
+    protected $password;
 
     /**
      * @ORM\ManyToOne(targetEntity=Profil::class, inversedBy="users")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $profile;
 
@@ -57,6 +67,11 @@ class User implements UserInterface
      *  @Assert\NotBlank(message="Le Prénom est obligatoire")
      */
     private $prenom;
+
+    /**
+     * @ORM\Column(type="blob", nullable=true)
+     */
+    private $avatar;
 
     public function getId(): ?int
     {
@@ -92,7 +107,7 @@ class User implements UserInterface
     {
         $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
+        $roles[] = 'ROLE_'.$this->profile->getLibelle();
 
         return array_unique($roles);
     }
@@ -168,6 +183,18 @@ class User implements UserInterface
     public function setPrenom(string $prenom): self
     {
         $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    public function getAvatar()
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar($avatar): self
+    {
+        $this->avatar = $avatar;
 
         return $this;
     }
