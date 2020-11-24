@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
@@ -9,17 +10,50 @@ use Doctrine\ORM\Mapping\DiscriminatorColumn;
 use Doctrine\ORM\Mapping\DiscriminatorMap;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\BooleanFilter;
+
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @ApiFilter(BooleanFilter::class, properties={"archive"=false})
  * @ORM\InheritanceType("JOINED")
  * @DiscriminatorColumn(name="profil", type="string")
  * @DiscriminatorMap({"user" = "User", "admin" = "Admin", "apprenant" = "Apprenant", "formateur" ="Formateur", "cm" ="CM"})
- *  * @ApiResource(
+ * @ApiResource(
  *     attributes={
  *          "security"="is_granted('ROLE_ADMIN')",
- *          "security_message"="Acces refusé vous n'avez pas l'autorisation"
- *     }
+ *          "security_message"="Acces refusé vous n'avez pas l'autorisation",
+ *          "input_formats"={"json"={"application/ld+json", "application/json"}},
+ *          "output_formats"={"json"={"application/ld+json", "application/json"}}
+ *     },
+ *      collectionOperations={
+ *          "getUsers" = {
+ *              "path" = "/admin/users",
+ *              "method" = "GET"
+ *          },
+ *          "addUsers" = {
+ *              "path" = "/admin/users",
+ *              "method" = "POST"
+ *          },
+ *     },
+ *      itemOperations={
+ *           "getUsersByID" = {
+ *              "path" = "/admin/users/{id}",
+ *              "method" = "GET",
+ *              "requirements" = {"id"="\d+"},
+ *            },
+ *           "archiveUsers" = {
+ *              "path" = "/admin/users/{id}",
+ *              "method" = "DELETE",
+ *              "requirements" = {"id"="\d+"},
+ *     },
+ *     "updateUsers" = {
+ *              "path" = "/admin/users/{id}",
+ *              "method" = "PUT",
+ *              "requirements" = {"id"="\d+"}
+ *      },
+ *
+ *  }
  * )
  */
 class User implements UserInterface
@@ -71,7 +105,17 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="blob", nullable=true)
      */
-    private $avatar;
+    protected $avatar;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $archive = 0;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $statut = 0;
 
     public function getId(): ?int
     {
@@ -189,12 +233,38 @@ class User implements UserInterface
 
     public function getAvatar()
     {
-        return $this->avatar;
+        $avatar = @stream_get_contents($this->avatar);
+        @fclose($this->avatar);
+        return base64_encode($avatar);
     }
 
     public function setAvatar($avatar): self
     {
         $this->avatar = $avatar;
+
+        return $this;
+    }
+
+    public function getArchive(): ?bool
+    {
+        return $this->archive;
+    }
+
+    public function setArchive(?bool $archive): self
+    {
+        $this->archive = $archive;
+
+        return $this;
+    }
+
+    public function getStatut(): ?bool
+    {
+        return $this->statut;
+    }
+
+    public function setStatut(?bool $statut): self
+    {
+        $this->statut = $statut;
 
         return $this;
     }

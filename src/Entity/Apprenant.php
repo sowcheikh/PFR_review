@@ -19,8 +19,25 @@ class Apprenant extends User
      */
     protected $id;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=ProfileSortie::class, inversedBy="profile_de_sortie")
+     */
+    private $profileSortie;
+
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getProfileSortie(): ?ProfileSortie
+    {
+        return $this->profileSortie;
+    }
+
+    public function setProfileSortie(?ProfileSortie $profileSortie): self
+    {
+        $this->profileSortie = $profileSortie;
+
+        return $this;
     }
 }

@@ -20,9 +20,30 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\BooleanFilter;
  * @ApiFilter(BooleanFilter::class, properties={"archive"=false})
  * @ApiResource(
  *       attributes={
- *          "security"="is_granted('ROLE_ADMIN')",
- *          "security_message"="Acces refusé vous n'avez pas l'autorisation",
  *          "normalizationContext"={"groups":"profil:read"}
+ *     },
+ *     routePrefix="/admin",
+ *     collectionOperations={
+ *     "getProfils" = {
+ *              "path" = "/profils",
+ *              "method" = "GET"
+ *     },
+ *     "addProfils" = {
+ *              "path" = "/profils",
+ *              "method" = "POST"
+ *     }
+ *     },
+ *     itemOperations={
+ *           "archiveProfils" = {
+ *              "path" = "/profils/{id}",
+ *              "method" = "DELETE",
+ *              "requirements" = {"id"="\d+"}
+ *     },
+ *     "getUsersByID" = {
+ *              "path" = "/profils/{id}",
+ *              "method" = "GET",
+ *              "requirements" = {"id"="\d+"}
+ *     }
  *     }
  * )
  */
