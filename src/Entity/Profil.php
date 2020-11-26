@@ -20,7 +20,9 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\BooleanFilter;
  * @ApiFilter(BooleanFilter::class, properties={"archive"=false})
  * @ApiResource(
  *       attributes={
- *          "normalizationContext"={"groups":"profil:read"}
+ *          "normalizationContext"={"groups":"profil:read"},
+ *          "security"="is_granted('ROLE_ADMIN')",
+ *          "security_message"="Acces refusé vous n'avez pas l'autorisation"
  *     },
  *     routePrefix="/admin",
  *     collectionOperations={

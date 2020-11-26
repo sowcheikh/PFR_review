@@ -32,6 +32,7 @@ class UserFixtures extends Fixture
             $userAdmin->setNom($faker->lastName());
             $userAdmin->setPrenom($faker->firstName());
             $userAdmin->setEmail($faker->email());
+            $userAdmin->setAvatar($faker->imageUrl('640', '480'));
             $userAdmin->setProfile($this->getReference(ProfilFixtures::ADMIN_USER_REFERENCE));
             $password = $this->passwordEncoder->encodePassword($userAdmin, 'password');
             $userAdmin->setPassword($password);
@@ -44,6 +45,7 @@ class UserFixtures extends Fixture
             $userApprenant->setNom($faker->lastName());
             $userApprenant->setPrenom($faker->firstName());
             $userApprenant->setEmail($faker->email());
+            $userApprenant->setAvatar($faker->imageUrl('640', '480'));
             $userApprenant->setProfile($this->getReference(ProfilFixtures::APPRENANT_USER_REFERENCE));
             $password = $this->passwordEncoder->encodePassword($userApprenant, 'password');
             $userApprenant->setPassword($password);
@@ -56,6 +58,7 @@ class UserFixtures extends Fixture
             $userFormateur->setNom($faker->lastName());
             $userFormateur->setPrenom($faker->firstName());
             $userFormateur->setEmail($faker->email());
+            $userFormateur->setAvatar($faker->imageUrl('640', '480'));
             $userFormateur->setProfile($this->getReference(ProfilFixtures::FORMATEUR_USER_REFERENCE));
             $password = $this->passwordEncoder->encodePassword($userFormateur, 'password');
             $userFormateur->setPassword($password);
@@ -68,6 +71,7 @@ class UserFixtures extends Fixture
             $userCM->setNom($faker->lastName());
             $userCM->setPrenom($faker->firstName());
             $userCM->setEmail($faker->email());
+            $userCM->setAvatar($faker->imageUrl('640', '480'));
             $userCM->setProfile($this->getReference(ProfilFixtures::CM_USER_REFERENCE));
             $password = $this->passwordEncoder->encodePassword($userCM, 'password');
             $userCM->setPassword($password);

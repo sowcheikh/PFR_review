@@ -3,14 +3,30 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiSubresource;
 use App\Repository\ProfileSortieRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ApiResource(
- *     routePrefix="/admin"
+ *     routePrefix="/admin",
+ *     attributes={
+ *          "security_message"="Acces refusé vous n'avez pas l'autorisation"
+ *     },
+ *     collectionOperations={
+ *          "get" = {
+ *              "security"="is_granted('VIEW', object)",
+ *              "path" = "/profilsorties",
+ *              "method" = "GET"
+ *          },
+ *     },
+ *      itemOperations={
+ *
+ *  }
+ *
  * )
  * @ORM\Entity(repositoryClass=ProfileSortieRepository::class)
  */
@@ -25,6 +41,7 @@ class ProfileSortie
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Libelle est obligatoire")
      */
     private $libelle;
 
@@ -35,6 +52,7 @@ class ProfileSortie
 
     /**
      * @ORM\OneToMany(targetEntity=Apprenant::class, mappedBy="profileSortie")
+     * @ApiSubresource()
      */
     private $profile_de_sortie;
 

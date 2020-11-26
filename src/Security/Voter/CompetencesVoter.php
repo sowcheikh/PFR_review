@@ -6,14 +6,14 @@ use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-class FormateurVoter extends Voter
+class CompetencesVoter extends Voter
 {
     protected function supports($attribute, $subject)
     {
         // replace with your own logic
         // https://symfony.com/doc/current/security/voters.html
-        return in_array($attribute, ['POST_EDIT', 'POST_VIEW'])
-            && $subject instanceof \App\Entity\Formateur;
+        return in_array($attribute, ['EDIT', 'VIEW', 'SET'])
+            && $subject instanceof \App\Entity\Competences;
     }
 
     protected function voteOnAttribute($attribute, $subject, TokenInterface $token)
@@ -26,14 +26,8 @@ class FormateurVoter extends Voter
 
         // ... (check conditions and return true to grant permission) ...
         switch ($attribute) {
-            case 'POST_EDIT':
-                // logic to determine if the user can EDIT
-                // return true or false
-                break;
-            case 'POST_VIEW':
-                // logic to determine if the user can VIEW
-                // return true or false
-                break;
+            case (('EDIT' || 'VIEW') || 'SET'):
+            return $user->getRoles()[0] === "ROLE_ADMIN" || $user->getRoles()[0] === "ROLE_FORMATEUR";
         }
 
         return false;

@@ -26,7 +26,7 @@ class ProfilTest extends WebTestCase
             [],
             ['CONTENT_TYPE' => 'application/json'],
             '{
-               "email":"descamps.honore@wanadoo.fr",
+               "email":"dominique48@yahoo.fr",
                "password":"password"
            }'
         );
@@ -63,7 +63,7 @@ class ProfilTest extends WebTestCase
 
     public function testAddProfils(): void
     {
-        $client = static::createClient();
+        $client = $this->createAuthenticatedClient();
         $client->request(
             'POST',
             'admin/profils',

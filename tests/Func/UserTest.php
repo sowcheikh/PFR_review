@@ -24,7 +24,7 @@ class UserTest extends WebTestCase
             [],
             ['CONTENT_TYPE' => 'application/json'],
             '{
-               "email":"descamps.honore@wanadoo.fr",
+               "email":"dominique48@yahoo.fr",
                "password":"password"
            }'
         );
@@ -61,7 +61,7 @@ class UserTest extends WebTestCase
 
     public function testAddUsers(): void
     {
-        $client = static::createClient();
+        $client = $this->createAuthenticatedClient();
         $client->request(
             'POST',
             'admin/users',
@@ -70,7 +70,9 @@ class UserTest extends WebTestCase
             ['CONTENT_TYPE' => 'application/json'],
             '{
                 "nom":"diop",
-                "prenom":"aziz"
+                "prenom":"aziz",
+                "email":"cheikh@gmail.com",
+                "password":"password"
             }'
         );
         $this->assertResponseStatusCodeSame(Response::HTTP_OK);

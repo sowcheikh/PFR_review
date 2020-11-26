@@ -7,7 +7,24 @@ use App\Repository\ApprenantRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     collectionOperations={
+ *        "GET"={
+ *              "path"="/admin/users/apprenants"
+ *         },
+ *        "POST"={
+ *              "path"="/admin/users/apprenants"
+ *         }
+ *      },
+ *     itemOperations={
+ *         "GET"={
+ *              "path"="/admin/users/apprenants/{id}"
+ *          },
+ *         "PUT"={
+ *              "path"="/admin/users/apprenants/{id}"
+ *           }
+ *       }
+ * )
  * @ORM\Entity(repositoryClass=ApprenantRepository::class)
  */
 class Apprenant extends User

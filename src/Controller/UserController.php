@@ -31,13 +31,13 @@ class UserController extends AbstractController
      * )
      */
     public function addUsers(Request $request,UserPasswordEncoderInterface $encoder,SerializerInterface $serializer,
-                             ValidatorInterface $validator,ProfilRepository $profil,EntityManagerInterface $manager, UploadFile $file)
+                             ValidatorInterface $validator,ProfilRepository $profilRepository,EntityManagerInterface $manager, UploadFile $file)
     {
         $user = $request->request->all();
         //dd($user);
         $avatar = $file::uploadFile($request->files->get("avatar"));
         $user["avatar"] = $avatar;
-        $profilUser = $profil->find($user['profile']);
+        $profilUser = $profilRepository->find($user['profile']);
         if ($profilUser) {
             unset($user["profile"]);
             if ($profilUser->getLibelle()=='FORMATEUR') {
@@ -51,7 +51,6 @@ class UserController extends AbstractController
             }
         }
 
-        //dd($user);
         $errors = $validator->validate($user);
         if (count($errors)){
             $errors = $serializer->serialize($errors,"json");
@@ -65,7 +64,6 @@ class UserController extends AbstractController
         return $this->json($user,Response::HTTP_CREATED);
     }
 
-
     /**
      * @Route(
      *     path="/api/admin/users/{id}",
@@ -75,21 +73,13 @@ class UserController extends AbstractController
      *          "__api_item_operation_name"="update_users"
      *     }
      * )
-     * @param $id
-     * @param Request $request
-     * @param UserPasswordEncoderInterface $encoder
-     * @param SerializerInterface $serializer
-     * @param ValidatorInterface $validator
-     * @param UserRepository $repository
-     * @param ProfilRepository $profilRepository
-     * @param EntityManagerInterface $manager
-     * @param UpdateUserService $updateUser
-     * @return JsonResponse
      */
     public function updateUsers($id, Request $request, UserPasswordEncoderInterface $encoder, SerializerInterface $serializer,
-                                ValidatorInterface $validator, UserRepository $repository, ProfilRepository $profilRepository, EntityManagerInterface $manager, UpdateUserService $updateUser, UploadFile $file)
+                                ValidatorInterface $validator, UserRepository $repository, ProfilRepository $profilRepository,
+                                EntityManagerInterface $manager, UpdateUserService $updateUser, UploadFile $file)
     {
-        $data = $updateUser->PutUser($request, 'avatar', $profilRepository);
+        $data = $updateUser->PutUser($request, 'avatar');
+        //dd($data);
         $user =$repository->find($id);
             foreach ($data as $key => $value) {
                 $donne = 'set'.ucfirst($key);
@@ -102,7 +92,6 @@ class UserController extends AbstractController
                         $user->$donne($value);
                     }
                 }
-
             }
         $errors = $validator->validate($user);
         if (count($errors)){
