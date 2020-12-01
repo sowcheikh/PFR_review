@@ -4,7 +4,10 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\TagRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ApiResource(
@@ -23,18 +26,31 @@ class Tag
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"tags:read"})
      */
     private $libelle;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"tags:read"})
      */
     private $description;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
+     * @Groups({"tags:read"})
      */
-    private $archive;
+    private $archive = 0;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=GroupeTag::class, mappedBy="tags", cascade={"persist"})
+     */
+    private $groupeTags;
+
+    public function __construct()
+    {
+        $this->groupeTags = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -73,6 +89,33 @@ class Tag
     public function setArchive(?bool $archive): self
     {
         $this->archive = $archive;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|GroupeTag[]
+     */
+    public function getGroupeTags(): Collection
+    {
+        return $this->groupeTags;
+    }
+
+    public function addGroupeTag(GroupeTag $groupeTag): self
+    {
+        if (!$this->groupeTags->contains($groupeTag)) {
+            $this->groupeTags[] = $groupeTag;
+            $groupeTag->addTag($this);
+        }
+
+        return $this;
+    }
+
+    public function removeGroupeTag(GroupeTag $groupeTag): self
+    {
+        if ($this->groupeTags->removeElement($groupeTag)) {
+            $groupeTag->removeTag($this);
+        }
 
         return $this;
     }

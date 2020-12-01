@@ -5,6 +5,7 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\NiveauRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -25,29 +26,33 @@ class Niveau
      * @Assert\NotBlank(
      *     message="Le critère d'évaluation est obligatoire"
      * )
+     * @Groups({"grpecompetence:read_m", "competence:read"})
      */
     private $critereEvaluation;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"grpecompetence:read_m", "competence:read"})
      */
     private $groupeAction;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
+     * @Groups({"grpecompetence:read_m", "competence:read"})
      */
-    private $archive;
+    private $archive = 0;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(
      *     message="Le libelle est obligatoire"
      * )
+     * @Groups({"grpecompetence:read_m", "competence:read"})
      */
     private $libelle;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Competences::class, inversedBy="niveaux")
+     * @ORM\ManyToOne(targetEntity=Competences::class, inversedBy="niveaux", cascade={"persist"})
      */
     private $competence;
 

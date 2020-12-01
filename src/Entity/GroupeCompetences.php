@@ -25,7 +25,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
  *          "add_groupeCompetence"={
  *              "method" = "POST",
  *              "path" = "/admin/grpecompetences",
- *              "normalization_context"={"groups"={"grpecompetence:read_"}}
+ *              "normalization_context"={"groups"={"grpecompetence:read_m"}}
  *          },
  *     },
  *     itemOperations={
@@ -33,13 +33,13 @@ use Symfony\Component\Serializer\Annotation\Groups;
  *              "method" = "GET",
  *              "path" = "/admin/grpecompetences/{id}",
  *              "requirements"={"id"="\d+"},
- *              "normalization_context"={"groups"={"grpecompetence:read_"}}
+ *              "normalization_context"={"groups"={"grpecompetence:read_m"}}
  *          },
  *          "get_competence_in_grpeCompetence"={
  *              "method" = "GET",
  *              "path" = "/admin/grpecompetences/{id}/competences",
  *              "requirements"={"id"="\d+"},
- *              "normalization_context"={"groups"={"grpecompetence:read_"}}
+ *              "normalization_context"={"groups"={"grpecompetence:read_m"}}
  *          },
  *          "set_grpeCompetence"={
  *              "method" = "PUT",
@@ -62,24 +62,25 @@ class GroupeCompetences
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"grpecompetence:read_m"})
+     * @Groups({"grpecompetence:read_m", "competence:read"})
      */
     private $libelle;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"grpecompetence:read_m"})
+     * @Groups({"grpecompetence:read_m", "competence:read"})
      */
     private $description;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
+     * @Groups({"grpecompetence:read_m", "competence:read"})
      */
     private $archive = 0;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Competences::class, inversedBy="groupeCompetences")
-     * @Groups({"grpecompetence:read_m"})
+     * @ORM\ManyToMany(targetEntity=Competences::class, inversedBy="groupeCompetences", cascade={"persist"})
+     * @Groups({"grpecompetence:read_m", "grpecompetence:competence:read"})
      */
     private $competence;
 

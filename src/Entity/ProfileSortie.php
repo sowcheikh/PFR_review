@@ -48,7 +48,7 @@ class ProfileSortie
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $archive;
+    private $archive = 0;
 
     /**
      * @ORM\OneToMany(targetEntity=Apprenant::class, mappedBy="profileSortie")

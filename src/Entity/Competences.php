@@ -55,7 +55,7 @@ class Competences
      * @Assert\NotBlank(
      *     message="Le libelle est obligatoire"
      * )
-     * @Groups({"competences:read"})
+     * @Groups({"competence:read", "grpecompetence:competence:read"})
      */
     private $libelle;
 
@@ -64,29 +64,31 @@ class Competences
      * @Assert\NotBlank(
      *     message="Le descriptif est obligatoire"
      * )
-     * @Groups({"competences:read"})
+     * @Groups({"competence:read", "grpecompetence:competence:read"})
      */
     private $descriptif;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
-     * @Groups({"competences:read"})
+     * @Groups({"competence:read", "grpecompetence:competence:read"})
      */
     private $archive = 0;
 
     /**
-     * @ORM\ManyToMany(targetEntity=GroupeCompetences::class, mappedBy="competence")
+     * @ORM\ManyToMany(targetEntity=GroupeCompetences::class, mappedBy="competence", cascade={"persist"})
      * @Assert\NotBlank(
      *     message="Une competence est dans au moins un groupe de competence"
      * )
+     * @Groups({"competence:read"})
      */
     private $groupeCompetences;
 
     /**
-     * @ORM\OneToMany(targetEntity=Niveau::class, mappedBy="competence")
+     * @ORM\OneToMany(targetEntity=Niveau::class, mappedBy="competence", cascade={"persist"})
      * @Assert\NotNull(
      *     message="Les niveaux d'évaluation sont obligatoires"
      * )
+     * @Groups({"competence:read", "grpecompetence:competence:read"})
      */
     private $niveaux;
 

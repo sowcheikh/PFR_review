@@ -64,4 +64,48 @@ class GroupeCompetencesController extends AbstractController
         return $this->json(["message" => self::RESOURCE_NOT_FOUND],Response::HTTP_NOT_FOUND);
     }
 
+    /**
+     * @Route(
+     *     path="/api/admin/grpecompetences/competences",
+     *     methods={"GET"},
+     *     name="getCompetencesInGroupeCompetences"
+     * )
+     */
+    public function getCompetencesInGroupeCompetences()
+    {
+        if(!($this->isGranted("VIEW",new GroupeCompetences())))
+        {
+            return $this->json(["message" => self::ACCESS_DENIED],Response::HTTP_FORBIDDEN);
+        }
+        $groupeCompetence = $this->groupeCompetenceRepository->findOneBy(["archive" => false]);
+        if($groupeCompetence && !$groupeCompetence->getArchive())
+        {
+            $groupeCompetence = $this->serializer->normalize($groupeCompetence,null,["groups" => ['grpecompetence:competence:read']]);
+            return $this->json($groupeCompetence,Response::HTTP_OK);
+        }
+        return $this->json(["message" => self::RESOURCE_NOT_FOUND],Response::HTTP_NOT_FOUND);
+    }
+
+
+    /**
+     * @Route(
+     *     path="/api/admins/grpecompetences/{id<\d+>}",
+     *     methods={"GET"},
+     *     name="getGroupeCompetence"
+     * )
+     */
+    public function getGroupeCompetence($id)
+    {
+        if(!($this->isGranted("VIEW",new GroupeCompetences())))
+        {
+            return $this->json(["message" => self::ACCESS_DENIED],Response::HTTP_FORBIDDEN);
+        }
+        $groupeCompetence = $this->groupeCompetenceRepository->findOneBy(["id" => $id]);
+        if($groupeCompetence && !$groupeCompetence->getArchive()){
+            $groupeCompetence = $this->serializer->normalize($groupeCompetence,null,["groups" => ['grpecompetence:read_m']]);
+            return $this->json($groupeCompetence,Response::HTTP_OK);
+        }
+        return $this->json(["message" => self::RESOURCE_NOT_FOUND],Response::HTTP_NOT_FOUND);
+    }
+
 }
