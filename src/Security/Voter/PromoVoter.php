@@ -12,8 +12,8 @@ class PromoVoter extends Voter
     {
         // replace with your own logic
         // https://symfony.com/doc/current/security/voters.html
-        return in_array($attribute, ['POST_EDIT', 'POST_VIEW'])
-            && $subject instanceof \App\Entity\Promo;
+        return in_array($attribute, ['EDIT', 'VIEW', 'SET', 'VIEW_ALL'])
+            ;
     }
 
     protected function voteOnAttribute($attribute, $subject, TokenInterface $token)
@@ -26,13 +26,14 @@ class PromoVoter extends Voter
 
         // ... (check conditions and return true to grant permission) ...
         switch ($attribute) {
-            case 'POST_EDIT':
-                // logic to determine if the user can EDIT
-                // return true or false
-                break;
-            case 'POST_VIEW':
-                // logic to determine if the user can VIEW
-                // return true or false
+            case 'VIEW_ALL':
+                return $user->getRoles()[0] === "ROLE_ADMIN" || $user->getRoles()[0] === "ROLE_FORMATEUR";
+
+            case 'EDIT' || 'SET':
+                return $user->getRoles()[0] === "ROLE_ADMIN" || $user->getRoles()[0] === "ROLE_FORMATEUR";
+
+            case 'VIEW':
+                return $user->getRoles()[0] === "ROLE_ADMIN" || $user->getRoles()[0] === "ROLE_FORMATEUR";
                 break;
         }
 

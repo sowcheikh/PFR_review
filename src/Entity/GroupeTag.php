@@ -12,6 +12,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * @ApiResource(
  *     routePrefix="/admin",
+ *     denormalizationContext={"groupes"={"tags:write"}},
  *     collectionOperations={
  *          "getGrpTags"={
  *              "method" = "GET",
@@ -58,13 +59,13 @@ class GroupeTag
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"tags:read"})
+     * @Groups({"tags:read", "tags:write"})
      */
     private $libelle;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
-     * @Groups({"tags:read"})
+     * @Groups({"tags:read", "tags:write"})
      */
     private $archive = 0;
 

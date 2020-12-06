@@ -47,6 +47,7 @@ class Competences
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"ref_c_grp:read"})
      */
     private $id;
 
@@ -55,7 +56,7 @@ class Competences
      * @Assert\NotBlank(
      *     message="Le libelle est obligatoire"
      * )
-     * @Groups({"competence:read", "grpecompetence:competence:read"})
+     * @Groups({"competence:read", "grpecompetence:competence:read", "ref_grpComp:read", "ref_c_grp:read"})
      */
     private $libelle;
 
@@ -64,13 +65,13 @@ class Competences
      * @Assert\NotBlank(
      *     message="Le descriptif est obligatoire"
      * )
-     * @Groups({"competence:read", "grpecompetence:competence:read"})
+     * @Groups({"competence:read", "grpecompetence:competence:read", "ref_grpComp:read", "ref_c_grp:read"})
      */
     private $descriptif;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
-     * @Groups({"competence:read", "grpecompetence:competence:read"})
+     * @Groups({"competence:read", "grpecompetence:competence:read", "ref_grpComp:read", "ref_c_grp:read"})
      */
     private $archive = 0;
 

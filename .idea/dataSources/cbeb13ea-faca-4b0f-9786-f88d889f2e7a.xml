@@ -929,313 +929,812 @@ ALL PRIVILEGES|root:null
     <table id="288" parent="2" name="apprenant">
       <Collation>utf8mb4_unicode_ci</Collation>
     </table>
-    <table id="289" parent="2" name="cm">
+    <table id="289" parent="2" name="brief">
       <Collation>utf8mb4_unicode_ci</Collation>
     </table>
-    <table id="290" parent="2" name="doctrine_migration_versions">
+    <table id="290" parent="2" name="brief_tag">
+      <Collation>utf8mb4_unicode_ci</Collation>
+    </table>
+    <table id="291" parent="2" name="cm">
+      <Collation>utf8mb4_unicode_ci</Collation>
+    </table>
+    <table id="292" parent="2" name="competences">
+      <Collation>utf8mb4_unicode_ci</Collation>
+    </table>
+    <table id="293" parent="2" name="doctrine_migration_versions">
       <Collation>utf8_unicode_ci</Collation>
     </table>
-    <table id="291" parent="2" name="formateur">
+    <table id="294" parent="2" name="formateur">
       <Collation>utf8mb4_unicode_ci</Collation>
     </table>
-    <table id="292" parent="2" name="profil">
+    <table id="295" parent="2" name="groupe">
       <Collation>utf8mb4_unicode_ci</Collation>
     </table>
-    <table id="293" parent="2" name="profile_sortie">
+    <table id="296" parent="2" name="groupe_apprenant">
       <Collation>utf8mb4_unicode_ci</Collation>
     </table>
-    <table id="294" parent="2" name="promo">
+    <table id="297" parent="2" name="groupe_competences">
       <Collation>utf8mb4_unicode_ci</Collation>
     </table>
-    <table id="295" parent="2" name="tag">
+    <table id="298" parent="2" name="groupe_competences_competences">
       <Collation>utf8mb4_unicode_ci</Collation>
     </table>
-    <table id="296" parent="2" name="user">
+    <table id="299" parent="2" name="groupe_tag">
       <Collation>utf8mb4_unicode_ci</Collation>
     </table>
-    <column id="297" parent="287" name="id">
+    <table id="300" parent="2" name="groupe_tag_tag">
+      <Collation>utf8mb4_unicode_ci</Collation>
+    </table>
+    <table id="301" parent="2" name="niveau">
+      <Collation>utf8mb4_unicode_ci</Collation>
+    </table>
+    <table id="302" parent="2" name="profil">
+      <Collation>utf8mb4_unicode_ci</Collation>
+    </table>
+    <table id="303" parent="2" name="profile_sortie">
+      <Collation>utf8mb4_unicode_ci</Collation>
+    </table>
+    <table id="304" parent="2" name="promo">
+      <Collation>utf8mb4_unicode_ci</Collation>
+    </table>
+    <table id="305" parent="2" name="referentiel">
+      <Collation>utf8mb4_unicode_ci</Collation>
+    </table>
+    <table id="306" parent="2" name="referentiel_groupe_competences">
+      <Collation>utf8mb4_unicode_ci</Collation>
+    </table>
+    <table id="307" parent="2" name="tag">
+      <Collation>utf8mb4_unicode_ci</Collation>
+    </table>
+    <table id="308" parent="2" name="user">
+      <Collation>utf8mb4_unicode_ci</Collation>
+    </table>
+    <column id="309" parent="287" name="id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="298" parent="287" name="PRIMARY">
+    <key id="310" parent="287" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="299" parent="287" name="FK_880E0D76BF396750">
+    <foreign-key id="311" parent="287" name="FK_880E0D76BF396750">
       <ColNames>id</ColNames>
       <RefTableName>user</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="300" parent="288" name="id">
+    <column id="312" parent="288" name="id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="301" parent="288" name="profile_sortie_id">
+    <column id="313" parent="288" name="profile_sortie_id">
       <Position>2</Position>
       <DataType>int|0s</DataType>
     </column>
-    <index id="302" parent="288" name="IDX_C4EB462E70ED3028">
+    <index id="314" parent="288" name="IDX_C4EB462E70ED3028">
       <ColNames>profile_sortie_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="303" parent="288" name="PRIMARY">
+    <key id="315" parent="288" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="304" parent="288" name="FK_C4EB462EBF396750">
+    <foreign-key id="316" parent="288" name="FK_C4EB462EBF396750">
       <ColNames>id</ColNames>
       <RefTableName>user</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="305" parent="288" name="FK_C4EB462E70ED3028">
+    <foreign-key id="317" parent="288" name="FK_C4EB462E70ED3028">
       <ColNames>profile_sortie_id</ColNames>
       <RefTableName>profile_sortie</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="306" parent="289" name="id">
+    <column id="318" parent="289" name="id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <key id="307" parent="289" name="PRIMARY">
+    <column id="319" parent="289" name="referentiel_id">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="320" parent="289" name="formateur_id">
+      <Position>3</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="321" parent="289" name="langue">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="322" parent="289" name="titre">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="323" parent="289" name="description">
+      <Position>6</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="324" parent="289" name="contexte">
+      <Position>7</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="325" parent="289" name="modalite_pedagogique">
+      <Position>8</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="326" parent="289" name="critere_de_performance">
+      <Position>9</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="327" parent="289" name="modalites_evaluation">
+      <Position>10</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="328" parent="289" name="avatar">
+      <Position>11</Position>
+      <DataType>longblob|0s</DataType>
+    </column>
+    <column id="329" parent="289" name="date_creation">
+      <Position>12</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="330" parent="289" name="status_brief">
+      <Position>13</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="331" parent="289" name="archive">
+      <Position>14</Position>
+      <DataType>tinyint(1)|0s</DataType>
+    </column>
+    <column id="332" parent="289" name="etat">
+      <Position>15</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="333" parent="289" name="IDX_1FBB1007805DB139">
+      <ColNames>referentiel_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="334" parent="289" name="IDX_1FBB1007155D8F51">
+      <ColNames>formateur_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="335" parent="289" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="308" parent="289" name="FK_3C0A377EBF396750">
+    <foreign-key id="336" parent="289" name="FK_1FBB1007805DB139">
+      <ColNames>referentiel_id</ColNames>
+      <RefTableName>referentiel</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="337" parent="289" name="FK_1FBB1007155D8F51">
+      <ColNames>formateur_id</ColNames>
+      <RefTableName>formateur</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="338" parent="290" name="brief_id">
+      <Position>1</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="339" parent="290" name="tag_id">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="340" parent="290" name="IDX_452A4F36757FABFF">
+      <ColNames>brief_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="341" parent="290" name="IDX_452A4F36BAD26311">
+      <ColNames>tag_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="342" parent="290" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>brief_id
+tag_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="343" parent="290" name="FK_452A4F36757FABFF">
+      <ColNames>brief_id</ColNames>
+      <RefTableName>brief</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="344" parent="290" name="FK_452A4F36BAD26311">
+      <ColNames>tag_id</ColNames>
+      <RefTableName>tag</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="345" parent="291" name="id">
+      <Position>1</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="346" parent="291" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="347" parent="291" name="FK_3C0A377EBF396750">
       <ColNames>id</ColNames>
       <RefTableName>user</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="309" parent="290" name="version">
+    <column id="348" parent="292" name="id">
+      <Position>1</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="349" parent="292" name="libelle">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="350" parent="292" name="descriptif">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="351" parent="292" name="archive">
+      <Position>4</Position>
+      <DataType>tinyint(1)|0s</DataType>
+    </column>
+    <key id="352" parent="292" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="353" parent="293" name="version">
       <Position>1</Position>
       <DataType>varchar(191)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="310" parent="290" name="executed_at">
+    <column id="354" parent="293" name="executed_at">
       <Position>2</Position>
       <DataType>datetime|0s</DataType>
     </column>
-    <column id="311" parent="290" name="execution_time">
+    <column id="355" parent="293" name="execution_time">
       <Position>3</Position>
       <DataType>int|0s</DataType>
     </column>
-    <key id="312" parent="290" name="PRIMARY">
+    <key id="356" parent="293" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>version</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="313" parent="291" name="id">
+    <column id="357" parent="294" name="id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="314" parent="291" name="PRIMARY">
+    <key id="358" parent="294" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="315" parent="291" name="FK_ED767E4FBF396750">
+    <foreign-key id="359" parent="294" name="FK_ED767E4FBF396750">
       <ColNames>id</ColNames>
       <RefTableName>user</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="316" parent="292" name="id">
+    <column id="360" parent="295" name="id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="317" parent="292" name="libelle">
+    <column id="361" parent="295" name="nom">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="318" parent="292" name="archive">
+    <column id="362" parent="295" name="date_creation">
       <Position>3</Position>
-      <DataType>tinyint(1)|0s</DataType>
+      <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="319" parent="292" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="320" parent="293" name="id">
-      <Position>1</Position>
-      <DataType>int|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>null</SequenceIdentity>
-    </column>
-    <column id="321" parent="293" name="libelle">
-      <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="322" parent="293" name="archive">
-      <Position>3</Position>
-      <DataType>tinyint(1)|0s</DataType>
-    </column>
-    <key id="323" parent="293" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="324" parent="294" name="id">
-      <Position>1</Position>
-      <DataType>int|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>null</SequenceIdentity>
-    </column>
-    <column id="325" parent="294" name="titre">
-      <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="326" parent="294" name="lieu">
-      <Position>3</Position>
-      <DataType>varchar(255)|0s</DataType>
-    </column>
-    <column id="327" parent="294" name="langue">
+    <column id="363" parent="295" name="status">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="328" parent="294" name="description">
+    <column id="364" parent="295" name="type">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="329" parent="294" name="fabrique">
+    <column id="365" parent="295" name="archive">
       <Position>6</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="330" parent="294" name="avatar">
-      <Position>7</Position>
-      <DataType>longblob|0s</DataType>
-    </column>
-    <column id="331" parent="294" name="archive">
-      <Position>8</Position>
       <DataType>tinyint(1)|0s</DataType>
     </column>
-    <column id="332" parent="294" name="date_debut">
-      <Position>9</Position>
-      <DataType>date|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="333" parent="294" name="date_fin">
-      <Position>10</Position>
-      <DataType>date|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <key id="334" parent="294" name="PRIMARY">
+    <key id="366" parent="295" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="335" parent="295" name="id">
+    <column id="367" parent="296" name="groupe_id">
+      <Position>1</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="368" parent="296" name="apprenant_id">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="369" parent="296" name="IDX_947F95197A45358C">
+      <ColNames>groupe_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="370" parent="296" name="IDX_947F9519C5697D6D">
+      <ColNames>apprenant_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="371" parent="296" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>groupe_id
+apprenant_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="372" parent="296" name="FK_947F95197A45358C">
+      <ColNames>groupe_id</ColNames>
+      <RefTableName>groupe</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="373" parent="296" name="FK_947F9519C5697D6D">
+      <ColNames>apprenant_id</ColNames>
+      <RefTableName>apprenant</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="374" parent="297" name="id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="336" parent="295" name="libelle">
+    <column id="375" parent="297" name="libelle">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="337" parent="295" name="description">
+    <column id="376" parent="297" name="description">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="338" parent="295" name="archive">
+    <column id="377" parent="297" name="archive">
       <Position>4</Position>
       <DataType>tinyint(1)|0s</DataType>
     </column>
-    <key id="339" parent="295" name="PRIMARY">
+    <key id="378" parent="297" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="340" parent="296" name="id">
+    <column id="379" parent="298" name="groupe_competences_id">
+      <Position>1</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="380" parent="298" name="competences_id">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="381" parent="298" name="IDX_FF48A1E1C1218EC1">
+      <ColNames>groupe_competences_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="382" parent="298" name="IDX_FF48A1E1A660B158">
+      <ColNames>competences_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="383" parent="298" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>groupe_competences_id
+competences_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="384" parent="298" name="FK_FF48A1E1C1218EC1">
+      <ColNames>groupe_competences_id</ColNames>
+      <RefTableName>groupe_competences</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="385" parent="298" name="FK_FF48A1E1A660B158">
+      <ColNames>competences_id</ColNames>
+      <RefTableName>competences</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="386" parent="299" name="id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="341" parent="296" name="profile_id">
+    <column id="387" parent="299" name="libelle">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="388" parent="299" name="archive">
+      <Position>3</Position>
+      <DataType>tinyint(1)|0s</DataType>
+    </column>
+    <key id="389" parent="299" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="390" parent="300" name="groupe_tag_id">
+      <Position>1</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="391" parent="300" name="tag_id">
       <Position>2</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="342" parent="296" name="email">
+    <index id="392" parent="300" name="IDX_C430CACFD1EC9F2B">
+      <ColNames>groupe_tag_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="393" parent="300" name="IDX_C430CACFBAD26311">
+      <ColNames>tag_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="394" parent="300" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>groupe_tag_id
+tag_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="395" parent="300" name="FK_C430CACFD1EC9F2B">
+      <ColNames>groupe_tag_id</ColNames>
+      <RefTableName>groupe_tag</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="396" parent="300" name="FK_C430CACFBAD26311">
+      <ColNames>tag_id</ColNames>
+      <RefTableName>tag</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="397" parent="301" name="id">
+      <Position>1</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="398" parent="301" name="competence_id">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="399" parent="301" name="critere_evaluation">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="400" parent="301" name="groupe_action">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="401" parent="301" name="archive">
+      <Position>5</Position>
+      <DataType>tinyint(1)|0s</DataType>
+    </column>
+    <column id="402" parent="301" name="libelle">
+      <Position>6</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="403" parent="301" name="IDX_4BDFF36B15761DAB">
+      <ColNames>competence_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="404" parent="301" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="405" parent="301" name="FK_4BDFF36B15761DAB">
+      <ColNames>competence_id</ColNames>
+      <RefTableName>competences</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="406" parent="302" name="id">
+      <Position>1</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="407" parent="302" name="libelle">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="408" parent="302" name="archive">
+      <Position>3</Position>
+      <DataType>tinyint(1)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="409" parent="302" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="410" parent="303" name="id">
+      <Position>1</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="411" parent="303" name="libelle">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="412" parent="303" name="archive">
+      <Position>3</Position>
+      <DataType>tinyint(1)|0s</DataType>
+    </column>
+    <key id="413" parent="303" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="414" parent="304" name="id">
+      <Position>1</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="415" parent="304" name="titre">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="416" parent="304" name="lieu">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <column id="417" parent="304" name="langue">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="418" parent="304" name="description">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="419" parent="304" name="fabrique">
+      <Position>6</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="420" parent="304" name="avatar">
+      <Position>7</Position>
+      <DataType>longblob|0s</DataType>
+    </column>
+    <column id="421" parent="304" name="archive">
+      <Position>8</Position>
+      <DataType>tinyint(1)|0s</DataType>
+    </column>
+    <column id="422" parent="304" name="date_debut">
+      <Position>9</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="423" parent="304" name="date_fin">
+      <Position>10</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="424" parent="304" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="425" parent="305" name="id">
+      <Position>1</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="426" parent="305" name="libelle">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="427" parent="305" name="presentation">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="428" parent="305" name="programme">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="429" parent="305" name="critere_admission">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="430" parent="305" name="critere_evaluation">
+      <Position>6</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="431" parent="305" name="archive">
+      <Position>7</Position>
+      <DataType>tinyint(1)|0s</DataType>
+    </column>
+    <key id="432" parent="305" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="433" parent="306" name="referentiel_id">
+      <Position>1</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="434" parent="306" name="groupe_competences_id">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="435" parent="306" name="IDX_E75B7F0A805DB139">
+      <ColNames>referentiel_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="436" parent="306" name="IDX_E75B7F0AC1218EC1">
+      <ColNames>groupe_competences_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="437" parent="306" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>referentiel_id
+groupe_competences_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="438" parent="306" name="FK_E75B7F0A805DB139">
+      <ColNames>referentiel_id</ColNames>
+      <RefTableName>referentiel</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="439" parent="306" name="FK_E75B7F0AC1218EC1">
+      <ColNames>groupe_competences_id</ColNames>
+      <RefTableName>groupe_competences</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="440" parent="307" name="id">
+      <Position>1</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="441" parent="307" name="libelle">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="442" parent="307" name="description">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="443" parent="307" name="archive">
+      <Position>4</Position>
+      <DataType>tinyint(1)|0s</DataType>
+    </column>
+    <key id="444" parent="307" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="445" parent="308" name="id">
+      <Position>1</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="446" parent="308" name="profile_id">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="447" parent="308" name="email">
       <Position>3</Position>
       <DataType>varchar(180)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="343" parent="296" name="password">
+    <column id="448" parent="308" name="password">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="344" parent="296" name="nom">
+    <column id="449" parent="308" name="nom">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="345" parent="296" name="prenom">
+    <column id="450" parent="308" name="prenom">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="346" parent="296" name="avatar">
+    <column id="451" parent="308" name="avatar">
       <Position>7</Position>
       <DataType>longblob|0s</DataType>
     </column>
-    <column id="347" parent="296" name="archive">
+    <column id="452" parent="308" name="archive">
       <Position>8</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="348" parent="296" name="statut">
+    <column id="453" parent="308" name="statut">
       <Position>9</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="349" parent="296" name="profil">
+    <column id="454" parent="308" name="profil">
       <Position>10</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="350" parent="296" name="UNIQ_8D93D649E7927C74">
+    <index id="455" parent="308" name="UNIQ_8D93D649E7927C74">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="351" parent="296" name="IDX_8D93D649CCFA12B8">
+    <index id="456" parent="308" name="IDX_8D93D649CCFA12B8">
       <ColNames>profile_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="352" parent="296" name="PRIMARY">
+    <key id="457" parent="308" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="353" parent="296" name="UNIQ_8D93D649E7927C74">
+    <key id="458" parent="308" name="UNIQ_8D93D649E7927C74">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>UNIQ_8D93D649E7927C74</UnderlyingIndexName>
     </key>
-    <foreign-key id="354" parent="296" name="FK_8D93D649CCFA12B8">
+    <foreign-key id="459" parent="308" name="FK_8D93D649CCFA12B8">
       <ColNames>profile_id</ColNames>
       <RefTableName>profil</RefTableName>
       <RefColNames>id</RefColNames>

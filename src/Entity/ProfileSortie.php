@@ -8,24 +8,29 @@ use App\Repository\ProfileSortieRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ApiResource(
  *     routePrefix="/admin",
+ *     denormalizationContext={"groups"={"profilsortie:write"}},
  *     attributes={
  *          "security_message"="Acces refusé vous n'avez pas l'autorisation"
  *     },
  *     collectionOperations={
- *          "get" = {
- *              "security"="is_granted('VIEW', object)",
+ *          "getProfilesorties" = {
+ *              "security"="is_granted('VIEW_ALL', object)",
  *              "path" = "/profilsorties",
  *              "method" = "GET"
  *          },
+ *     "addProfilesorties" = {
+ *              "security"="is_granted('EDIT', object)",
+ *              "path" = "/profilsorties",
+ *              "method" = "POST"
+ *          },
  *     },
- *      itemOperations={
  *
- *  }
  *
  * )
  * @ORM\Entity(repositoryClass=ProfileSortieRepository::class)
@@ -42,6 +47,7 @@ class ProfileSortie
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Libelle est obligatoire")
+     * @Groups({"profilsortie:write"})
      */
     private $libelle;
 
@@ -51,7 +57,7 @@ class ProfileSortie
     private $archive = 0;
 
     /**
-     * @ORM\OneToMany(targetEntity=Apprenant::class, mappedBy="profileSortie")
+     * @ORM\OneToMany(targetEntity=Apprenant::class, mappedBy="profileSortie", cascade={"persist"})
      * @ApiSubresource()
      */
     private $profile_de_sortie;

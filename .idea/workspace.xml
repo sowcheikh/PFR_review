@@ -20,16 +20,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0437b26c-d39e-46c6-bb0d-ee95ac095f5b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/DataPersister/GroupeDataPersister.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DataProvider/PromoDataProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/cbeb13ea-faca-4b0f-9786-f88d889f2e7a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/cbeb13ea-faca-4b0f-9786-f88d889f2e7a.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201126224709.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/CompetencesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CompetencesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/GroupeCompetencesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GroupeCompetencesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/CompetencesFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/CompetencesFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/lexik_jwt_authentication.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/lexik_jwt_authentication.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201201175304.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Apprenant.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Apprenant.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Competences.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Competences.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Formateur.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Formateur.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Groupe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Groupe.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/GroupeCompetences.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/GroupeCompetences.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Niveau.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Niveau.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/GroupeTag.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/GroupeTag.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/ProfileSortie.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/ProfileSortie.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Promo.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Promo.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Tag.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Tag.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/PromoRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PromoRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Security/Voter/BriefVoter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/Voter/BriefVoter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Security/Voter/ProfileSortieVoter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/Voter/ProfileSortieVoter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Security/Voter/PromoVoter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/Voter/PromoVoter.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +186,9 @@
       <workItem from="1605861217540" duration="19204000" />
       <workItem from="1605964923816" duration="7560000" />
       <workItem from="1606119771492" duration="1436000" />
-      <workItem from="1606121225975" duration="133989000" />
+      <workItem from="1606121225975" duration="166841000" />
+      <workItem from="1606990213495" duration="40062000" />
+      <workItem from="1607105493912" duration="27980000" />
     </task>
     <servers />
   </component>
@@ -204,73 +216,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="664" y="338" width="582" height="351" key="#Notifications" timestamp="1606120155137">
-      <screen x="0" y="27" width="1920" height="973" />
-    </state>
-    <state x="664" y="338" width="582" height="351" key="#Notifications/0.27.1920.973@0.27.1920.973" timestamp="1606120155137" />
-    <state x="605" y="137" width="700" height="753" key="#PHP" timestamp="1606169750425">
-      <screen x="0" y="27" width="1920" height="973" />
-    </state>
-    <state x="605" y="137" width="700" height="753" key="#PHP/0.27.1920.973@0.27.1920.973" timestamp="1606169750425" />
-    <state x="555" y="157" width="800" height="713" key="#Plugins" timestamp="1606120081088">
-      <screen x="0" y="27" width="1920" height="973" />
-    </state>
-    <state x="555" y="157" width="800" height="713" key="#Plugins/0.27.1920.973@0.27.1920.973" timestamp="1606120081088" />
-    <state x="506" y="169" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606317567265">
-      <screen x="0" y="27" width="1920" height="973" />
-    </state>
-    <state x="506" y="169" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.973@0.27.1920.973" timestamp="1606317567265" />
-    <state x="663" y="321" width="583" height="403" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605647304806">
-      <screen x="0" y="27" width="1920" height="985" />
-    </state>
-    <state x="663" y="321" width="583" height="403" key="#com.intellij.fileTypes.FileTypeChooser/0.27.1920.985@0.27.1920.985" timestamp="1605647304806" />
-    <state x="627" y="214" width="655" height="599" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606843549174">
-      <screen x="0" y="27" width="1920" height="973" />
-    </state>
-    <state x="627" y="214" width="655" height="599" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.27.1920.973@0.27.1920.973" timestamp="1606843549174" />
-    <state x="804" y="269" width="530" height="599" key="FileChooserDialogImpl" timestamp="1606207290807">
-      <screen x="0" y="27" width="1920" height="973" />
-    </state>
-    <state x="804" y="269" width="530" height="599" key="FileChooserDialogImpl/0.27.1920.973@0.27.1920.973" timestamp="1606207290807" />
-    <state width="360" height="636" key="HiddenNamespacesPopup" timestamp="1606317123348">
-      <screen x="0" y="27" width="1920" height="973" />
-    </state>
-    <state width="360" height="636" key="HiddenNamespacesPopup/0.27.1920.973@0.27.1920.973" timestamp="1606317123348" />
-    <state x="543" y="250" width="824" height="527" key="IDE.errors.dialog" timestamp="1606171816165">
-      <screen x="0" y="27" width="1920" height="973" />
-    </state>
-    <state x="543" y="250" width="824" height="527" key="IDE.errors.dialog/0.27.1920.973@0.27.1920.973" timestamp="1606171816165" />
-    <state x="557" y="172" width="795" height="684" key="NewPhpClassDialog" timestamp="1606728061054">
-      <screen x="0" y="27" width="1920" height="973" />
-    </state>
-    <state x="557" y="172" width="795" height="684" key="NewPhpClassDialog/0.27.1920.973@0.27.1920.973" timestamp="1606728061054" />
-    <state x="755" y="440" width="399" height="184" key="NewPhpFileDialog" timestamp="1606223270728">
-      <screen x="0" y="27" width="1920" height="973" />
-    </state>
-    <state x="755" y="440" width="399" height="184" key="NewPhpFileDialog/0.27.1920.973@0.27.1920.973" timestamp="1606223270728" />
-    <state x="755" y="445" width="399" height="156" key="NewPhpFileDialog/0.27.1920.985@0.27.1920.985" timestamp="1605604467867" />
-    <state x="449" y="94" width="1125" height="906" key="SettingsEditor" timestamp="1606725955136">
-      <screen x="0" y="27" width="1920" height="973" />
-    </state>
-    <state x="449" y="94" width="1125" height="906" key="SettingsEditor/0.27.1920.973@0.27.1920.973" timestamp="1606725955136" />
-    <state x="555" y="249" width="800" height="529" key="Vcs.Push.Dialog.v2" timestamp="1605792403462">
-      <screen x="0" y="27" width="1920" height="973" />
-    </state>
-    <state x="555" y="249" width="800" height="529" key="Vcs.Push.Dialog.v2/0.27.1920.973@0.27.1920.973" timestamp="1605792403462" />
-    <state x="683" y="401" width="783" height="334" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1606207295154">
-      <screen x="0" y="27" width="1920" height="973" />
-    </state>
-    <state x="683" y="401" width="783" height="334" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.27.1920.973@0.27.1920.973" timestamp="1606207295154" />
-    <state x="624" y="232" key="run.anything.popup" timestamp="1606345021861">
-      <screen x="0" y="27" width="1920" height="973" />
-    </state>
-    <state x="624" y="232" key="run.anything.popup/0.27.1920.973@0.27.1920.973" timestamp="1606345021861" />
-    <state x="624" y="235" key="run.anything.popup/0.27.1920.985@0.27.1920.985" timestamp="1605607561885" />
-    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1606170067098">
-      <screen x="0" y="27" width="1920" height="973" />
-    </state>
-    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup/0.27.1920.973@0.27.1920.973" timestamp="1606170067098" />
   </component>
 </project>

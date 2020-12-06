@@ -4,22 +4,16 @@ namespace App\Security\Voter;
 
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
-use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-class ProfileSortieVoter extends Voter
+class ApprenantVoter extends Voter
 {
-    private $security = null;
-    public function __construct(Security $security)
-    {
-        $this->security = $security;
-    }
-
     protected function supports($attribute, $subject)
     {
         // replace with your own logic
         // https://symfony.com/doc/current/security/voters.html
-        return in_array($attribute, ['EDIT', 'VIEW', 'VIEW_ALL']);
+        // dd($subject);
+        return in_array($attribute, ['APP_VIEW_ALL', 'APP_VIEW', 'APP_EDIT']);
     }
 
     protected function voteOnAttribute($attribute, $subject, TokenInterface $token)
@@ -32,18 +26,21 @@ class ProfileSortieVoter extends Voter
 
         // ... (check conditions and return true to grant permission) ...
         switch ($attribute) {
-            case 'VIEW_ALL':
-                return $user->getRoles()[0] === 'ROLE_ADMIN' || $user->getRoles()[0] === 'ROLE_FORMATEUR';
-                break;
-
-            case 'EDIT':
+            case 'APP_VIEW_ALL':
+                return
+                    $user->getRoles()[0] === "ROLE_ADMIN"
+                    || $user->getRoles()[0] === "ROLE_FORMATEUR"
+                ;
+            case 'APP_VIEW':
                 // logic to determine if the user can EDIT
-                return $user->getRoles()[0]==='ROLE_ADMIN' || $user->getRoles()[0]==='ROLE_FORMATEUR';
-
+                return
+                    $user->getRoles()[0] === "ROLE_ADMIN"
+                    || $user->getRoles()[0] === "ROLE_FORMATEUR"
+                    || $user->getId() === $subject->getId();
                 break;
-            case 'VIEW':
+            case 'APP_EDIT':
                 // logic to determine if the user can VIEW
-                return $user->getRoles()[0]==='ROLE_ADMIN' || $user->getRoles()[0]==='ROLE_FORMATEUR' || $user->getRoles()[0]==='ROLE_CM';
+                // return true or false
                 break;
         }
 

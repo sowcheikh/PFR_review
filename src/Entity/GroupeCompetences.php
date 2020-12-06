@@ -57,36 +57,43 @@ class GroupeCompetences
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"ref_c_grp:read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"grpecompetence:read_m", "competence:read"})
+     * @Groups({"grpecompetence:read_m", "competence:read", "referentiels:read", "referentiels:write", "ref_grpComp:read"})
      */
     private $libelle;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"grpecompetence:read_m", "competence:read"})
+     * @Groups({"grpecompetence:read_m", "competence:read", "referentiels:read", "referentiels:write", "ref_grpComp:read"})
      */
     private $description;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
-     * @Groups({"grpecompetence:read_m", "competence:read"})
+     * @Groups({"grpecompetence:read_m", "competence:read", "referentiels:read", "referentiels:write", "ref_grpComp:read"})
      */
     private $archive = 0;
 
     /**
      * @ORM\ManyToMany(targetEntity=Competences::class, inversedBy="groupeCompetences", cascade={"persist"})
-     * @Groups({"grpecompetence:read_m", "grpecompetence:competence:read"})
+     * @Groups({"grpecompetence:read_m", "grpecompetence:competence:read", "ref_grpComp:read", "ref_c_grp:read"})
      */
     private $competence;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Referentiel::class, mappedBy="groupeCompetence", cascade={"persist"})
+     */
+    private $referentiels;
 
     public function __construct()
     {
         $this->competence = new ArrayCollection();
+        $this->referentiels = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -150,6 +157,33 @@ class GroupeCompetences
     public function removeCompetence(Competences $competence): self
     {
         $this->competence->removeElement($competence);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Referentiel[]
+     */
+    public function getReferentiels(): Collection
+    {
+        return $this->referentiels;
+    }
+
+    public function addReferentiel(Referentiel $referentiel): self
+    {
+        if (!$this->referentiels->contains($referentiel)) {
+            $this->referentiels[] = $referentiel;
+            $referentiel->addGroupeCompetence($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReferentiel(Referentiel $referentiel): self
+    {
+        if ($this->referentiels->removeElement($referentiel)) {
+            $referentiel->removeGroupeCompetence($this);
+        }
 
         return $this;
     }

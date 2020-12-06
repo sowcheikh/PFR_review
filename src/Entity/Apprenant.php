@@ -12,7 +12,9 @@ use Doctrine\ORM\Mapping as ORM;
  * @ApiResource(
  *     collectionOperations={
  *        "GET"={
- *              "path"="/admin/users/apprenants"
+ *              "path"="/admin/users/apprenants",
+ *              "security"="is_granted('APP_VIEW_ALL', object)",
+ *              "security_message"="Vous n'avez pas accès"
  *         },
  *        "POST"={
  *              "path"="/admin/users/apprenants"
@@ -20,7 +22,9 @@ use Doctrine\ORM\Mapping as ORM;
  *      },
  *     itemOperations={
  *         "GET"={
- *              "path"="/admin/users/apprenants/{id}"
+ *              "path"="/admin/users/apprenants/{id}",
+ *              "security"="is_granted('APP_VIEW', object)",
+ *              "security_message"="Vous n'avez pas accès"
  *          },
  *         "PUT"={
  *              "path"="/admin/users/apprenants/{id}"
@@ -39,12 +43,12 @@ class Apprenant extends User
     protected $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=ProfileSortie::class, inversedBy="profile_de_sortie")
+     * @ORM\ManyToOne(targetEntity=ProfileSortie::class, inversedBy="profile_de_sortie", cascade={"persist"})
      */
     private $profileSortie;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Groupe::class, mappedBy="apprenant")
+     * @ORM\ManyToMany(targetEntity=Groupe::class, mappedBy="apprenant", cascade={"persist"})
      */
     private $groupes;
 
