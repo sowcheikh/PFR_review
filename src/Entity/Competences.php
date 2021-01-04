@@ -47,7 +47,8 @@ class Competences
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"ref_c_grp:read"})
+     * @Groups({"competence:read", "grpecompetence:competence:read", "ref_grpComp:read", "ref_c_grp:read",
+     *     "grpecompetence:read_m", "ref_grpComp:read"})
      */
     private $id;
 
@@ -56,7 +57,8 @@ class Competences
      * @Assert\NotBlank(
      *     message="Le libelle est obligatoire"
      * )
-     * @Groups({"competence:read", "grpecompetence:competence:read", "ref_grpComp:read", "ref_c_grp:read"})
+     * @Groups({"competence:read", "grpecompetence:competence:read", "ref_grpComp:read", "ref_c_grp:read",
+     *     "grpecompetence:read_m", "ref_grpComp:read"})
      */
     private $libelle;
 

@@ -57,7 +57,7 @@ class GroupeCompetences
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"ref_c_grp:read"})
+     * @Groups({"grpecompetence:read_m", "competence:read", "referentiels:read", "referentiels:write", "ref_grpComp:read"})
      */
     private $id;
 

@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\DiscriminatorColumn;
 use Doctrine\ORM\Mapping\DiscriminatorMap;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\BooleanFilter;
 
@@ -29,7 +30,8 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\BooleanFilter;
  *      collectionOperations={
  *          "getUsers" = {
  *              "path" = "/admin/users",
- *              "method" = "GET"
+ *              "method" = "GET",
+ *               "normalization_context"={"groups":"user:read"},
  *          },
  *          "addUsers" = {
  *              "path" = "/admin/users",
@@ -62,6 +64,7 @@ class User implements UserInterface
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"user:read"})
      */
     protected $id;
 
@@ -71,6 +74,7 @@ class User implements UserInterface
      * @Assert\Email(
      *     message="Veuillez saisir un email valide."
      * )
+     * @Groups({"user:read"})
      */
     protected $email;
 
@@ -80,37 +84,44 @@ class User implements UserInterface
      * @var string The hashed password
      * @ORM\Column(type="string")
      * @Assert\NotBlank(message="Le password est obligatoire")
+     * @Groups({"user:read"})
      */
     protected $password;
 
     /**
      * @ORM\ManyToOne(targetEntity=Profil::class, inversedBy="users")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"user:read"})
      */
     private $profile;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"user:read"})
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"user:read"})
      */
     private $prenom;
 
     /**
      * @ORM\Column(type="blob", nullable=true)
+     * @Groups({"user:read"})
      */
     protected $avatar;
 
     /**
      * @ORM\Column(type="boolean")
+     * @Groups({"user:read"})
      */
     private $archive = 0;
 
     /**
      * @ORM\Column(type="boolean")
+     * @Groups({"user:read"})
      */
     private $statut = 0;
 

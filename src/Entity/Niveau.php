@@ -18,6 +18,7 @@ class Niveau
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"competence:read", "grpecompetence:competence:read"})
      */
     private $id;
 
@@ -26,19 +27,19 @@ class Niveau
      * @Assert\NotBlank(
      *     message="Le critère d'évaluation est obligatoire"
      * )
-     * @Groups({"grpecompetence:read_m", "competence:read"})
+     * @Groups({"grpecompetence:read_m", "competence:read", "grpecompetence:competence:read"})
      */
     private $critereEvaluation;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"grpecompetence:read_m", "competence:read"})
+     * @Groups({"grpecompetence:read_m", "competence:read", "grpecompetence:competence:read"})
      */
     private $groupeAction;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
-     * @Groups({"grpecompetence:read_m", "competence:read"})
+     * @Groups({"grpecompetence:read_m", "competence:read", "grpecompetence:competence:read"})
      */
     private $archive = 0;
 
@@ -47,7 +48,7 @@ class Niveau
      * @Assert\NotBlank(
      *     message="Le libelle est obligatoire"
      * )
-     * @Groups({"grpecompetence:read_m", "competence:read"})
+     * @Groups({"grpecompetence:read_m", "competence:read", "grpecompetence:competence:read"})
      */
     private $libelle;
 

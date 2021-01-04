@@ -20,26 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0437b26c-d39e-46c6-bb0d-ee95ac095f5b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/DataPersister/GroupeDataPersister.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataProvider/PromoDataProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/cbeb13ea-faca-4b0f-9786-f88d889f2e7a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/cbeb13ea-faca-4b0f-9786-f88d889f2e7a.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/lexik_jwt_authentication.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/lexik_jwt_authentication.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201201175304.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Apprenant.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Apprenant.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/api_platform.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/api_platform.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Competences.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Competences.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Formateur.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Formateur.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Groupe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Groupe.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/GroupeCompetences.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/GroupeCompetences.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/GroupeTag.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/GroupeTag.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/ProfileSortie.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/ProfileSortie.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Promo.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Promo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Tag.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Tag.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/PromoRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PromoRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/Voter/BriefVoter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/Voter/BriefVoter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/Voter/ProfileSortieVoter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/Voter/ProfileSortieVoter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/Voter/PromoVoter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/Voter/PromoVoter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Niveau.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Niveau.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Profil.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Profil.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,6 +150,7 @@
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -188,7 +176,16 @@
       <workItem from="1606119771492" duration="1436000" />
       <workItem from="1606121225975" duration="166841000" />
       <workItem from="1606990213495" duration="40062000" />
-      <workItem from="1607105493912" duration="27980000" />
+      <workItem from="1607105493912" duration="30278000" />
+      <workItem from="1607614046645" duration="185000" />
+      <workItem from="1607685081088" duration="402000" />
+      <workItem from="1608495376439" duration="204000" />
+      <workItem from="1609323531818" duration="379000" />
+      <workItem from="1609333002173" duration="25000" />
+      <workItem from="1609361737254" duration="1910000" />
+      <workItem from="1609593009869" duration="1034000" />
+      <workItem from="1609754678917" duration="344000" />
+      <workItem from="1609760217818" duration="314000" />
     </task>
     <servers />
   </component>
